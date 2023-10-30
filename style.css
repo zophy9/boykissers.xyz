@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    opacity: 0;
+    color: #222;
+    font-size: 3em;
+    text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    opacity: 0;
+
+    border: none;
+    background-color: #d73a52;
+    border-radius: 2em;
+    color: #ffffff;
+
+    height: 2em;
+    width: 7em;
+
+    font-size: 1.5em;
+
+    box-shadow: 0em 0.3em 0px 0px #921528;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+button:hover {
+    transform: translateY(-0.1em);
+    box-shadow: 0em 0.4em 0px 0px #921528;
+}
+
+button:active {
+    transform: translateY(0.3em);
+    box-shadow: 0em 0em 0px 0px #921528;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    animation: pop-up 1s forwards cubic-bezier(0.23, 1, 0.320, 1);
+
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 50vh;
+}
+
+.boyksr {
+    transition: transform 0.2s
+}
+
+.boyksr_vid {
+    position: absolute;
+    height: 50vh;
+}
+
+.unmute {
+    position: absolute;
+    margin-left: calc(50vh * 1.333333 - 3em);
+    margin-top: calc(50vh - 3em);
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    box-shadow: none;
+    color: black;
+    opacity: 1;
+
+    transition: opacity 0.5s;
+}
+
+.unmute:hover {
+    background-color: none;
+    border: none;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+}
+
+.mute-img {
+    width: 2em;
+}
+
+.pop-up {
+    animation: pop-up-text 1s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.mute-modal {
+    display: none;
+    position: absolute;
+    transition: opacity 0.5s;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vrchat {
+    height: 4em;
+    margin-top: 1em;
+    margin-right: 2em;
+    opacity: 0;
+}
+
+
+@keyframes pop-up {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pop-up-text {
+    0% {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0% {
+        rotate: 0deg;
+    }
+
+    50% {
+        rotate: 0.5deg;
+    }
+
+    100% {
+        rotate: -0.5deg;
+    }
+}
