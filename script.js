@@ -7,7 +7,7 @@ vrchat = document.getElementsByClassName('vrchat')[0]
 discord = document.getElementsByClassName('discord')[0]
 unmute = document.getElementsByClassName('unmute')[0]
 
-video = document.getElementsByClassName('boyksr_vid')[0]
+video = document.getElementById('boyksr_vid')
 
 window.onload = () => {
     setTimeout(() => {

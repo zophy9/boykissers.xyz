@@ -86,7 +86,7 @@ h1 {
     transition: transform 0.2s
 }
 
-.boyksr_vid {
+#boyksr_vid {
     position: absolute;
     height: 50vh;
 }
