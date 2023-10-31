@@ -75,6 +75,7 @@ h1 {
 
 #vwrapper-wrapper {
     display: flex;
+    margin-left: 100px;
 }
 
 .video-wrapper {
@@ -163,8 +164,9 @@ box-shadow: 0em 0em 0px 0px #cfcfcf;
 
 .mute-modal {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
+    font-weight:600;
     opacity: 0;
+    margin-top: 2px;
     transition: opacity 0.5s;
 }
 
