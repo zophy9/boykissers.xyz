@@ -1,11 +1,12 @@
 boyksr = document.getElementById('boyksr')
 wrapper = document.getElementsByClassName('wrapper')[0]
 text = document.getElementById('boyksr-text')
-button = document.getElementById('boyksr-btn')
+vrc_button = document.getElementById('boyksr-btn')
+disc_button = document.getElementById('boyksr-dbtn')
 vrchat = document.getElementsByClassName('vrchat')[0]
-unmute = document.getElementsByClassName('unmute')[0]
+discord = document.getElementsByClassName('discord')[0]
 
-video = document.getElementsByClassName('boyksr_vid')[0]
+video = document.getElementById('boyksr_vid')
 
 window.onload = () => {
     setTimeout(() => {
@@ -13,20 +14,25 @@ window.onload = () => {
         text.classList.add('pop-up')
 
         setTimeout(() => {
-            button.classList.add('pop-up')
+            vrc_button.classList.add('pop-up')
+            disc_button.classList.add('pop-up')
             vrchat.classList.add('pop-up')
+            discord.classList.add('pop-up')
             setTimeout(() => {
-                button.classList.remove('pop-up')
-                button.style.opacity = 1
+                vrc_button.classList.remove('pop-up')
+                vrc_button.style.opacity = 1
+                disc_button.classList.remove('pop-up')
+                disc_button.style.opacity = 1
             }, 1000)
         }, 300)
     }, 800)
-
 }
+
 var muted = true
 mute_modal = document.getElementsByClassName('mute-modal')[0]
 mute_btn = document.getElementsByClassName('unmute')[0]
-button.addEventListener('mouseover', () => {
+
+function meowover() {
     boyksr.src = 'images/boykisser_meow.png'
     boyksr.style.transform = 'scale(1.05)'
     boyksr.style.animation = 'shake 0.3s infinite'
@@ -34,29 +40,38 @@ button.addEventListener('mouseover', () => {
     video.play()
 
     if (muted) {
-        mute_modal.style.display = 'block'
+        mute_modal.style.opacity = 1;
 
         var rect = mute_btn.getBoundingClientRect();
         mute_modal.style.top = rect.top + 'px'
         mute_modal.style.left = (rect.left + 125) + 'px'
     }
     else {
-        mute_modal.style.display = 'none'
+        mute_modal.style.opacity = 0;
     }
-})
+}
 
-button.addEventListener('mouseout', () => {
+
+function meowout() {
     boyksr.src = 'images/boykisser_smile.png'
     boyksr.style.transform = 'scale(1)'
     boyksr.style.animation = 'none'
 
     video.pause().currentTime(0).trigger('loadstart')
-})
+}
 
-button.addEventListener('click', () => {
+vrc_button.addEventListener('mouseover', meowover)
+vrc_button.addEventListener('mouseout', meowout)
+disc_button.addEventListener('mouseover', meowover)
+disc_button.addEventListener('mouseout', meowout)
+
+
+vrc_button.addEventListener('click', () => {
     window.open('https://vrchat.com/home/group/grp_da97de09-4b4e-4b0f-8243-ecad5f91fe14', '_blank')
 })
-
+disc_button.addEventListener('click', () => {
+    window.open('https://discord.gg/tV6ADEnf', '_blank')
+})
 
 
 mute_btn.addEventListener('click', () => {
@@ -64,6 +79,15 @@ mute_btn.addEventListener('click', () => {
     muted ? muted = false : muted = true
 
     video.muted = !video.muted;
-    mute_modal.style.display = 'none'
-    mute_btn.style.opacity = 0
+    if (!muted){ 
+        mute_btn.classList.add("unmute-unmuted")
+        mute_btn.classList.remove("unmute")
+        mute_btn.style.backgroundColor = "#fafafa"
+    } else {
+        mute_btn.classList.remove("unmute-unmuted")
+        mute_btn.classList.add("unmute")
+        mute_btn.style.backgroundColor = "#d73a52";
+    };
+
+    //mute_modal.style.opacity = 0;
 })
