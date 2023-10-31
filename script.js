@@ -5,7 +5,6 @@ vrc_button = document.getElementById('boyksr-btn')
 disc_button = document.getElementById('boyksr-dbtn')
 vrchat = document.getElementsByClassName('vrchat')[0]
 discord = document.getElementsByClassName('discord')[0]
-unmute = document.getElementsByClassName('unmute')[0]
 
 video = document.getElementById('boyksr_vid')
 
@@ -27,8 +26,8 @@ window.onload = () => {
             }, 1000)
         }, 300)
     }, 800)
-
 }
+
 var muted = true
 mute_modal = document.getElementsByClassName('mute-modal')[0]
 mute_btn = document.getElementsByClassName('unmute')[0]
@@ -41,16 +40,17 @@ function meowover() {
     video.play()
 
     if (muted) {
-        mute_modal.style.display = 'block'
+        mute_modal.style.opacity = 1;
 
         var rect = mute_btn.getBoundingClientRect();
         mute_modal.style.top = rect.top + 'px'
         mute_modal.style.left = (rect.left + 125) + 'px'
     }
     else {
-        mute_modal.style.display = 'none'
+        mute_modal.style.opacity = 0;
     }
 }
+
 
 function meowout() {
     boyksr.src = 'images/boykisser_smile.png'
@@ -60,10 +60,10 @@ function meowout() {
     video.pause().currentTime(0).trigger('loadstart')
 }
 
-vrc_button.addEventListener('mouseover', meowover())
-vrc_button.addEventListener('mouseout', meowout())
-disc_button.addEventListener('mouseover', meowover())
-disc_button.addEventListener('mouseout', meowout())
+vrc_button.addEventListener('mouseover', meowover)
+vrc_button.addEventListener('mouseout', meowout)
+disc_button.addEventListener('mouseover', meowover)
+disc_button.addEventListener('mouseout', meowout)
 
 
 vrc_button.addEventListener('click', () => {
@@ -79,6 +79,15 @@ mute_btn.addEventListener('click', () => {
     muted ? muted = false : muted = true
 
     video.muted = !video.muted;
-    mute_modal.style.display = 'none'
-    mute_btn.style.opacity = 0
+    if (!muted){ 
+        mute_btn.classList.add("unmute-unmuted")
+        mute_btn.classList.remove("unmute")
+        mute_btn.style.backgroundColor = "#fafafa"
+    } else {
+        mute_btn.classList.remove("unmute-unmuted")
+        mute_btn.classList.add("unmute")
+        mute_btn.style.backgroundColor = "#d73a52";
+    };
+
+    //mute_modal.style.opacity = 0;
 })
