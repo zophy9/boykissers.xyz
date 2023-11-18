@@ -70,7 +70,7 @@ vrc_button.addEventListener('click', () => {
     window.open('https://vrchat.com/home/group/grp_da97de09-4b4e-4b0f-8243-ecad5f91fe14', '_blank')
 })
 disc_button.addEventListener('click', () => {
-    window.open('https://discord.gg/tV6ADEnf', '_blank')
+    window.open('https://discord.gg/eygwKPCR5Q', '_blank')
 })
 
 
